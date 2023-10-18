@@ -11,5 +11,6 @@ def main(n):
                 a[j] = False
     for i in range(2, n):
         if a[i]:
+            print(i)
             result.append(i)
     return result
