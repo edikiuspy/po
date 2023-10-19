@@ -44,8 +44,10 @@ def test_negative_input(monkeypatch: MonkeyPatch) -> None:
 def test_float_input(monkeypatch: MonkeyPatch) -> None:
     monkeypatch.setattr('sys.stdin', StringIO('10.5'))
     assert main(float(input())) == [2, 3, 5, 7]
-def test_print_on_console(capsys: CaptureFixture,monkeypatch:MonkeyPatch) -> None:
+
+
+def test_print_on_console(capsys: CaptureFixture, monkeypatch: MonkeyPatch) -> None:
     monkeypatch.setattr('sys.stdin', StringIO('10'))
     main(int(input()))
     captured = capsys.readouterr()
-    assert captured.out[0]=='2'
+    assert captured.out[0] == '2'
