@@ -48,4 +48,4 @@ def test_print_on_console(capsys: CaptureFixture,monkeypatch:MonkeyPatch) -> Non
     monkeypatch.setattr('sys.stdin', StringIO('10'))
     main(int(input()))
     captured = capsys.readouterr()
-    assert captured.out[0]==2
+    assert captured.out[0]=='2'
