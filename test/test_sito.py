@@ -7,7 +7,6 @@ import pytest
 from _pytest.monkeypatch import MonkeyPatch
 
 
-@pytest.fixture
 def test_exists_main_function(monkeypatch: MonkeyPatch) -> None:
     main(1)
 
