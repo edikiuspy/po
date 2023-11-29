@@ -44,7 +44,7 @@ def put_user(id: int) -> Response:
 @app.delete("/users/<int:id>")
 def delete_user(id: int) -> Response:
     if id < 0 or id >= len(users):
-        return Response(status=404)
+        return Response(status=400)
     users.pop(id)
     return Response(status=204)
 
