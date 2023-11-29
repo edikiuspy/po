@@ -26,6 +26,7 @@ def test_get_users(client):
 
 
 def test_get_user(client):
+    client.post("/users", json={"name": "Eduard", "lastname": "Muntianov"})
     user_id = 0
     response = client.get(f"/users/{user_id}")
     assert response.get_json() == get_user(user_id).get_json()
@@ -34,7 +35,7 @@ def test_get_user(client):
 def test_update_user(client):
     user_id = 0
     payload = {"name": "Andrzej"}
-    response = client.patch(f"/users/{user_id}", json=payload)
+    client.patch(f"/users/{user_id}", json=payload)
     assert get_user(user_id).get_json()["name"] == "Andrzej"
 
 
